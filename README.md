@@ -27,9 +27,9 @@ Esta aplicação permite gerar relatórios em PDF de forma dinâmica. Ela recebe
 curl -X POST http://localhost:8080/relatorio/pdf \
 -H "Content-Type: application/json" \
 -d '{
-  "Venda_Codigo": 30561,
-  "Venda_Data": "2016-12-01",
-  "Venda_ValorTotal": 65.7
+  "Nome": "Rodrigo Sousa",
+  "Idade": "19",
+  "Semestre": 4
 }'
 ```
 
