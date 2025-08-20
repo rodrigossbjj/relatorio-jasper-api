@@ -56,30 +56,6 @@ public class RelatorioController {
     }
 
     public static String formatarJson(String json) {
-        ObjectMapper mapper = new ObjectMapper();
-        try {
-            if (json == null || json.isEmpty()) {
-                return "{\"dados\":[]}";
-            }
-
-            JsonNode node = mapper.readTree(json);
-            ObjectNode root = mapper.createObjectNode();
-            ArrayNode dadosArray = mapper.createArrayNode();
-
-            if (node.isArray()) {
-                node.forEach(dadosArray::add);
-            } else if (node.isObject()) {
-                dadosArray.add(node);
-            } else {
-                return "{\"dados\":[]}";
-            }
-
-            root.set("dados", dadosArray);
-            return mapper.writerWithDefaultPrettyPrinter().writeValueAsString(root);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            return "{\"dados\":[]}";
-        }
+        // Implementação de como quer formatar seu JSON
     }
 }
