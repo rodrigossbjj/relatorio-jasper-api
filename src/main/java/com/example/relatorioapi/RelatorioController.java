@@ -5,11 +5,6 @@ import net.sf.jasperreports.engine.data.JsonDataSource;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ArrayNode;
-import com.fasterxml.jackson.databind.node.ObjectNode;
-
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
@@ -57,5 +52,6 @@ public class RelatorioController {
 
     public static String formatarJson(String json) {
         // Implementação de como quer formatar seu JSON
+        return "";
     }
 }
