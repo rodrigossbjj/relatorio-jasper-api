@@ -22,7 +22,8 @@ Ela recebe dados no formato JSON via requisição **POST**, formata os dados par
 
 ### Exemplo de Requisição  
 ```bash
-curl -X POST http://localhost:8080/relatorio/pdf/rel -H "Content-Type: application/json" -d '{
+curl -X POST http://localhost:8080/relatorio/pdf/rel -H "Content-Type: application/json" -d '
+{
   "Nome": "Rodrigo Sousa",
   "Idade": "19",
   "Semestre": 4
