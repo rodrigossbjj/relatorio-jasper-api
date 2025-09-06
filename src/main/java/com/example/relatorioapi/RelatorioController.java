@@ -5,6 +5,8 @@ import net.sf.jasperreports.engine.data.JsonDataSource;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
@@ -29,7 +31,6 @@ public class RelatorioController {
 
         // Parâmetros do relatório
         Map<String, Object> parametros = new HashMap<>();
-
 
         ObjectMapper mapper = new ObjectMapper();
         JsonNode rootNode = mapper.readTree(json);
