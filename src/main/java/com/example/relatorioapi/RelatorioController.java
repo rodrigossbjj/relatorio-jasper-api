@@ -5,6 +5,7 @@ import net.sf.jasperreports.engine.data.JsonDataSource;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.*;
