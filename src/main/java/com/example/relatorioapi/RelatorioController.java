@@ -14,8 +14,12 @@ import java.util.Map;
 @RequestMapping("/relatorio")
 public class RelatorioController {
     // Recebe Json no corpo da requisição via POST
-    @PostMapping(value = "/pdf", produces = MediaType.APPLICATION_PDF_VALUE)
-    public ResponseEntity<byte[]> gerarRelatorioPdfComJsonArquivo(@RequestBody String json) throws JRException, IOException {
+    // Recebe o nome do relatório na URL
+    @PostMapping(value = "/pdf/{nomeRel}", produces = MediaType.APPLICATION_PDF_VALUE)
+    public ResponseEntity<byte[]> gerarRelatorioPdfComJsonArquivo(@PathVariable("nomeRel") String nomeRel,
+            @RequestBody String json)
+            throws JRException, IOException {
+
         // Formata o Json para o formato correto que o Jasper espera receber
         String jsonFormatado = formatarJson(json);
 
@@ -25,10 +29,19 @@ public class RelatorioController {
 
         // Parâmetros do relatório
         Map<String, Object> parametros = new HashMap<>();
-        parametros.put("ReportTitle", "Relatório de Vendas");
 
+
+        ObjectMapper mapper = new ObjectMapper();
+        JsonNode rootNode = mapper.readTree(json);
+
+        String linkLogo = rootNode.path("cabecalho").path("linkLogo").asText();
+        String nomeEmpresa = rootNode.path("cabecalho").path("nomeEmpresa").asText();
+
+        parametros.put("UrlImg", linkLogo);
+        parametros.put("nomeEmpresa", nomeEmpresa);
+        
         // Carregar o arquivo .jrxml do classpath
-        InputStream jrxmlStream = getClass().getResourceAsStream("/relatorios/rel.jrxml");
+        InputStream jrxmlStream = getClass().getResourceAsStream("/relatorios/" + nomeRel + ".jrxml");
         if (jrxmlStream == null) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
