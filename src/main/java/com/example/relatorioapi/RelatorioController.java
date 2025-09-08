@@ -36,11 +36,8 @@ public class RelatorioController {
         ObjectMapper mapper = new ObjectMapper();
         JsonNode rootNode = mapper.readTree(json);
 
-        String linkLogo = rootNode.path("cabecalho").path("linkLogo").asText();
-        String nomeEmpresa = rootNode.path("cabecalho").path("nomeEmpresa").asText();
-
-        parametros.put("UrlImg", linkLogo);
-        parametros.put("nomeEmpresa", nomeEmpresa);
+        // Exemplo atribuição de valor para parametro
+        // parametros.put("ParametroREL", valorParametro);
         
         // Carregar o arquivo .jrxml do classpath
         InputStream jrxmlStream = getClass().getResourceAsStream("/relatorios/" + nomeRel + ".jrxml");
