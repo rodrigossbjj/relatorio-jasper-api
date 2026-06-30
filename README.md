@@ -1,7 +1,7 @@
 # Relatório Jasper API  
 API Spring Boot que gera relatórios em PDF a partir de dados JSON utilizando JasperReports.  
 
-## 📌 Descrição  
+## Descrição  
 Esta aplicação permite gerar relatórios em PDF de forma dinâmica.  
 Ela recebe dados no formato JSON via requisição **POST**, formata os dados para a estrutura esperada pelo JasperReports, compila e preenche um relatório `.jrxml` em tempo de execução e retorna o PDF gerado como resposta HTTP.  
 
